@@ -64,3 +64,17 @@ def current_divider(resistors:None, current:None):
     print(f"I2 = {I2} A")
     print(f"It = {I1 + I2} A")
 
+# 6 
+def KCL(Vin, R1, *resistors):
+    Vnode = Vin / (1 + sum(R1 / R for R in resistors))
+
+    I1 = (Vin - Vnode) / R1
+    currents = [Vnode / R for R in resistors]
+
+    print(f"Vnode: {Vnode:.2f} V")
+    print(f"I1: {I1:.2f} A")
+
+    for i, current in enumerate(currents, 2):
+        print(f"I{i}: {current:.2f} A")
+
+    print(f"KCL: {I1:.2f} = {sum(currents):.2f}")
