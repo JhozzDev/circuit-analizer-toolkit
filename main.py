@@ -52,4 +52,15 @@ def voltage_divider(voltage_1=None, resistors=None, current=None):
 
     print("Voltage exit: ", sum(voltages_drops))
 
-voltage_divider(10, [10, 2, 3, 5, 6, 7, 8])
+# 4
+def current_divider(resistors:None, current:None):
+    It =  sum(current)
+    total_r = sum(resistors)
+
+    I1 = It * (resistors[1] / total_r)
+    I2 = It * (resistors[0] / total_r)
+
+    print(f"I1 = {I1} A")
+    print(f"I2 = {I2} A")
+    print(f"It = {I1 + I2} A")
+
