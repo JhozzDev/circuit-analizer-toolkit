@@ -1,3 +1,4 @@
+# 1
 def ohms_law(v=None, i=None, r=None):
 
     dados = sum(x is not None for x in (v, i, r))
@@ -17,6 +18,7 @@ def ohms_law(v=None, i=None, r=None):
 
     return {"v": v, "i": i, "r": r}
 
+# 2
 def series_voltage_drop(voltage, resistors):
     if not resistors:
         raise ValueError("You must hand in at least one resistance")
@@ -25,3 +27,29 @@ def series_voltage_drop(voltage, resistors):
     current = voltage / total_resistance
 
     return [current * r for r in resistors]
+
+# 3
+def voltage_divider(voltage_1=None, resistors=None, current=None):
+    if resistors is None:
+        print("Resistors are required")
+        return
+
+    resistances_total = sum(resistors)
+    voltages_drops = []
+
+
+    if voltage_1 is not None:
+        for i, r in enumerate(resistors):    
+            resistances_cal = r / resistances_total
+            drop = voltage_1 * resistances_cal
+            voltages_drops.append(drop)
+            print(f"Voltage Drop #{i+1} Output:", drop)
+        
+
+    if current is None:
+        current = voltage_1 / resistances_total
+        print("Current: ", current, "A")
+
+    print("Voltage exit: ", sum(voltages_drops))
+
+voltage_divider(10, [10, 2, 3, 5, 6, 7, 8])
