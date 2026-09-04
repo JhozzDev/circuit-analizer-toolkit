@@ -78,3 +78,21 @@ def KCL(Vin, R1, *resistors):
         print(f"I{i}: {current:.2f} A")
 
     print(f"KCL: {I1:.2f} = {sum(currents):.2f}")
+
+# 5 
+def KVL(V_source:None, resistors:None):
+
+    R_total = sum(resistors)
+    voltage_drops = []
+    I = V_source / R_total
+
+    for i, r in enumerate(resistors):
+       V_R =  I * r
+       print(V_R)
+       voltage_drops.append(V_R)
+
+    kvl = V_source - sum(voltage_drops)
+
+    print(f"Current: {I} A")
+    print(f"KVL: {kvl} V")
+
