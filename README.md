@@ -74,7 +74,11 @@ The sum of all voltage drops equals the source voltage:
 5V + 10V + 5V = 20V
 ```
 
+<<<<<<< HEAD
 ##  Purpose
+=======
+## Purpose
+>>>>>>> 7e610e2d685b1504bbed5b3b1da38cdfbeebdfbc
 
 This project is part of my bio-electronics self-study.
 
