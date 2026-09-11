@@ -1,3 +1,8 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import sympy as sp
+
+
 # 1
 def ohms_law(v=None, i=None, r=None):
 
@@ -100,4 +105,22 @@ def KVL(V_source:None, resistors:None):
 def Total_Capacitancy_Series(Capacitors:None):
     CT=1 / sum(1/C for C in Capacitors)
     print(CT)
+
+# 7 
+def Relationship_I_V():
+    C = 1
+    T = sp.symbols("t")
+    V = 5 * T ** 2
     
+    
+    dv_dv = sp.diff(V, T)
+    I = C * dv_dv
+    
+    time = np.linspace(0, 1, 1000)
+    V_function = sp.lambdify(T, V, "numpy")
+    I_function = sp.lambdify(T, I, "numpy")
+    
+    current = I_function(time)
+    voltages = V_function(time)
+        
+    ### Graphs are missing.
