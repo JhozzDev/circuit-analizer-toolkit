@@ -96,3 +96,8 @@ def KVL(V_source:None, resistors:None):
     print(f"Current: {I} A")
     print(f"KVL: {kvl} V")
 
+# 6 
+def Total_Capacitancy_Series(Capacitors:None):
+    CT=1 / sum(1/C for C in Capacitors)
+    print(CT)
+    
